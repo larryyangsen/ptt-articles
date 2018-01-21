@@ -2,6 +2,7 @@ import {
     FETCH_ARTICLE_LIST_START,
     FETCH_ARTICLE_LIST_SUCCESS,
     FETCH_ARTICLE_LIST_FAILURE,
+    SET_PAGINATION,
     SELECT_ARTICLE
 } from '../actions/articles';
 
@@ -31,5 +32,12 @@ export const fetchArticleListSuccess = (state = [], action) => {
             return state;
     }
 };
-
+export const setPagination = (state = {}, action) => {
+    switch (action.type) {
+        case SET_PAGINATION:
+            return action.pagination;
+        default:
+            return state;
+    }
+};
 export const fetchArticle = (state, action) => {};

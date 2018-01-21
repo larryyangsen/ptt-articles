@@ -9,7 +9,8 @@ import {
 import {
     fetchArticleListStarting,
     fetchArticleListSuccess,
-    fetchArticleListFailure
+    fetchArticleListFailure,
+    setPagination
 } from './articlesReducer';
 
 const hotBoardsReducer = {
@@ -21,7 +22,8 @@ const hotBoardsReducer = {
 const articlesReducer = {
     startingFetchArticleList: fetchArticleListStarting,
     articles: fetchArticleListSuccess,
-    fetchArticleListError: fetchArticleListFailure
+    fetchArticleListError: fetchArticleListFailure,
+    pagination: setPagination
 };
 const rootReducers = combineReducers(
     Object.assign(hotBoardsReducer, articlesReducer)

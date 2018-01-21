@@ -24,11 +24,24 @@ export const fetchArticleListFailure = error => ({
 export const SELECT_ARTICLE = 'SELECT_ARTICLE';
 export const selectArticle = article => ({ type: SELECT_ARTICLE, article });
 
+export const SET_PAGINATION = 'SET_PAGINATION';
+export const setPagination = (board = '', page, curPage) => {
+    const pre = { board, page };
+    const next = curPage === 'index' ? null : { board, page: page + 2 };
+    return {
+        type: SET_PAGINATION,
+        pagination: { pre, next }
+    };
+};
+
 export const fetchArticleList = (board, page = 'index') => dispatch => {
     dispatch(fetchArticleListStart(true));
     return axios
-        .get(`${apiBaseUrl}${board}/${page}?pageCounts=3`)
-        .then(res => dispatch(fetchArticleListSuccess(res.data.items)))
+        .get(`${apiBaseUrl}${board}/${page}?pageCounts=2`)
+        .then(res => {
+            dispatch(setPagination(board, res.data.prePageNumber, page));
+            return dispatch(fetchArticleListSuccess(res.data.items));
+        })
         .catch(error => dispatch(fetchArticleListFailure(error)));
 };
 
