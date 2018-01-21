@@ -8,7 +8,6 @@ const app = express();
 const server = http.createServer(app);
 app.use(cors());
 app.get('/ptt/:boardName/:startPage', async (req, res) => {
-    console.log(req.baseUrl);
     req.params = {
         ...req.params,
         ...req.query,
@@ -24,7 +23,6 @@ app.get('/ptt/:boardName/:startPage', async (req, res) => {
         req.params
     );
     const list = await scraper(option);
-    console.log(option);
     // const item = await content(list.items[5]);
     res.json(list);
 });
@@ -32,7 +30,7 @@ app.get('/ptt/hot-boards', async (req, res) => {
     const boards = await hot();
     res.json(boards);
 });
-app.use(serveStatic(path.join(__dirname, '../dist')));
+process.env.NODE_ENV === 'production' && app.use(serveStatic(path.join(__dirname, '../client')));
 
 server.listen(9999, () => {
     console.log('server listen on 9999');

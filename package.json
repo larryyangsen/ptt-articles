@@ -5,7 +5,10 @@
     "license": "MIT",
     "scripts": {
         "dev:server": "cross-env NODE_ENV=development nodemon server --exec babel-node --watch server",
-        "start": "cross-env NODE_ENV=development parcel index.html --no-cache"
+        "build:server": "cross-env NODE_ENV=production babel server -d dist/server",
+        "dev:client": "cross-env NODE_ENV=development parcel src/index.html -d build--no-cache",
+        "build:client": "cross-env NODE_ENV=production parcel build src/index.html -d dist/client --public-url='./'",
+        "start": "cross-env NODE_ENV=production node dist/server"
     },
     "dependencies": {
         "antd": "^3.1.1",
