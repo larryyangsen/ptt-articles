@@ -1,7 +1,5 @@
 import axios from 'axios';
-const apiBaseUrl = `${window.location.protocol}//${
-    window.location.hostname
-}:9999/ptt/`;
+const apiBaseUrl = `${window.location.origin}/ptt/`;
 
 export const FETCH_ARTICLE_LIST_START = 'FETCH_ARTICLE_LIST_START';
 export const fetchArticleListStart = isStart => ({
@@ -25,16 +23,17 @@ export const SELECT_ARTICLE = 'SELECT_ARTICLE';
 export const selectArticle = article => ({ type: SELECT_ARTICLE, article });
 
 export const SET_PAGINATION = 'SET_PAGINATION';
-export const setPagination = (board = '', page, curPage) => {
-    const pre = { board, page };
-    const next = curPage === 'index' ? null : { board, page: page + 2 };
+export const setPagination = (board = '', prePage, curPage) => {
+    const pre = { board, page: prePage };
+    const nextPage = curPage + 2;
+    const next = curPage === 0 ? null : { board, page: nextPage };
     return {
         type: SET_PAGINATION,
         pagination: { pre, next }
     };
 };
 
-export const fetchArticleList = (board, page = 'index') => dispatch => {
+export const fetchArticleList = (board, page = 0) => dispatch => {
     dispatch(fetchArticleListStart(true));
     return axios
         .get(`${apiBaseUrl}${board}/${page}?pageCounts=2`)

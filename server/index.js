@@ -31,6 +31,7 @@ app.get('/ptt/hot-boards', async (req, res) => {
     res.json(boards);
 });
 process.env.NODE_ENV === 'production' && app.use(serveStatic(path.join(__dirname, '../client')));
+process.env.NODE_ENV === 'development' && app.use(serveStatic(path.join(__dirname, '../build')));
 
 server.listen(9999, () => {
     console.log('server listen on 9999');

@@ -8,12 +8,10 @@ import '../style/articles.css';
 
 class Articles extends Component {
     preArticleList() {
-        console.log(this.props);
         const { board, page } = this.props.pagination.pre;
         this.props.fetchArticleList(board, page);
     }
     nextArticleList() {
-        console.log(this.props);
         const { board, page } = this.props.pagination.next;
         this.props.fetchArticleList(board, page);
     }
@@ -37,11 +35,7 @@ class Articles extends Component {
                         dataSource={this.props.articles}
                         renderItem={article => (
                             <List.Item>
-                                {article.title ? (
-                                    <a href={article.link}>{article.title}</a>
-                                ) : (
-                                    <p> 『已經不存在了」</p>
-                                )}
+                                {article.title ? <a href={article.link}>{article.title}</a> : <p> 『已經不存在了」</p>}
                             </List.Item>
                         )}
                     />
@@ -61,12 +55,7 @@ class Articles extends Component {
     }
 }
 
-const mapStateToProps = ({
-    startingFetchArticleList,
-    articles,
-    pagination,
-    fetchArticleListError
-}) => ({
+const mapStateToProps = ({ startingFetchArticleList, articles, pagination, fetchArticleListError }) => ({
     startingFetchArticleList,
     articles,
     pagination,

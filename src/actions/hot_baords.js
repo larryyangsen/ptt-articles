@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { fetchArticleList } from './articles';
-const hotBoardsBaseUrl = `${window.location.protocol}//${
-    window.location.hostname
-}:9999/ptt/hot-boards`;
+const hotBoardsBaseUrl = `${window.location.origin}/ptt/hot-boards`;
 
 export const FETCH_HOT_BOARDS_START = 'FETCH_HOT_BOARDS_START';
 export const fetchHotBoardsStart = isStart => ({
