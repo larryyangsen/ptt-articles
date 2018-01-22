@@ -26,7 +26,7 @@
         "less": "^2.7.3",
         "multer": "^1.3.0",
         "parcel-bundler": "^1.4.1",
-        "ptt-scr": "^1.1.9",
+        "ptt-scr": "^1.1.13",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
         "react-redux": "^5.0.6",
