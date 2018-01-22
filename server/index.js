@@ -6,6 +6,7 @@ import path from 'path';
 import cors from 'cors';
 const app = express();
 const server = http.createServer(app);
+const port = process.env.PORT || 9999;
 app.use(cors());
 app.get('/ptt/:boardName/:startPage', async (req, res) => {
     req.params = {
@@ -33,6 +34,6 @@ app.get('/ptt/hot-boards', async (req, res) => {
 process.env.NODE_ENV === 'production' && app.use(serveStatic(path.join(__dirname, '../client')));
 process.env.NODE_ENV === 'development' && app.use(serveStatic(path.join(__dirname, '../build')));
 
-server.listen(9999, () => {
+server.listen(port, () => {
     console.log('server listen on 9999');
 });
