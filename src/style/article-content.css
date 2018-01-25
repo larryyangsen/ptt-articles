@@ -1,0 +1,29 @@
+.article-title,
+.article-athor,
+.article-datetime,
+.article-content {
+    color: #fff;
+}
+
+.return-btn {
+    margin-top: 1rem;
+}
+.article-title {
+    margin-top: 6px;
+}
+.article-content {
+    font-size: 1.3rem;
+}
+.reply {
+    color: tan;
+    font-size: 1rem;
+}
+.reply-neutral {
+    color: #c00;
+}
+.reply-push {
+    color: greenyellow;
+}
+.reply-boo {
+    color: red;
+}

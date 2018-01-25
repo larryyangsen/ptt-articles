@@ -14,3 +14,6 @@ body {
     height: 45rem;
     overflow: auto;
 }
+p.no-article {
+    color: #fff;
+}

@@ -42,7 +42,7 @@ class Articles extends Component {
                         >
                         <div className="article-list">
                             <List
-                                size="large"
+                                size="small"
                                 bordered
                                 dataSource={this.props.articles}
                                 renderItem={article => (
@@ -52,7 +52,7 @@ class Articles extends Component {
                                                 {article.title}
                                             </ArticleTitle>
                                         ) : (
-                                            <p> 『已經不存在了」</p>
+                                            <p className="no-article"> 『已經不存在了」</p>
                                         )}
                                     </List.Item>
                                 )}
