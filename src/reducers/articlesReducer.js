@@ -3,6 +3,7 @@ import {
     FETCH_ARTICLE_LIST_SUCCESS,
     FETCH_ARTICLE_LIST_FAILURE,
     SET_PAGINATION,
+    SET_MAX_PAGE,
     SELECT_ARTICLE
 } from '../actions/articles';
 
@@ -40,4 +41,11 @@ export const setPagination = (state = {}, action) => {
             return state;
     }
 };
-export const fetchArticle = (state, action) => {};
+export const setMaxPage = (state = 0, action) => {
+    switch (action.type) {
+        case SET_MAX_PAGE:
+            return action.page;
+        default:
+            return state;
+    }
+};

@@ -5,7 +5,8 @@ import setupStore from './store/setupStore';
 import App from './components/app';
 const store = setupStore({
     startingFetchHotBoards: true,
-    startingFetchArticleList: true
+    startingFetchArticleList: true,
+    isArticleShowing: false
 });
 ReactDom.render(
     <Provider store={store}>

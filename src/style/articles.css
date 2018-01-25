@@ -1,4 +1,16 @@
+body {
+    background-color: #000;
+}
 .article-list {
-    height: 40rem;
+    height: 45rem;
+    overflow: auto;
+}
+
+.articles-btn-group {
+    margin-top: 0.6rem;
+    text-align: center;
+}
+.hot-board-list {
+    height: 45rem;
     overflow: auto;
 }
