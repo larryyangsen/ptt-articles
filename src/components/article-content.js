@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from 'antd';
+import { Button, Icon, Card } from 'antd';
 import '../style/article-content.css';
 const checkTagClassName = tag => {
     if (tag === '推') return 'reply-push';
@@ -17,10 +17,12 @@ export default ({
     push,
     reply,
     title,
-    urls,
+    urls = [],
     link,
     setArticleShowing
 }) => {
+    if (!content) return '';
+    const imgs = urls.filter(u => u.indexOf('https://i.imgur.com') !== -1);
     return (
         <div className="article">
             <h1 className="article-title">
@@ -28,10 +30,12 @@ export default ({
             </h1>
             <h2 className="article-athor">{athor}</h2>
             <h3 className="article-datetime">{datetime}</h3>
-            <p className="article-content">{content}</p>
+            <div className="article-content">{content.split('\s').map(c => <p>{c}</p>)}</div>
             <Button className="return-btn" size="small" onClick={() => setArticleShowing(false)}>
                 <Icon type="arrow-left" />
             </Button>
+            {imgs.map(img => <Card hoverable style={{ width: 720 }} cover={<img src={img} />} />)}
+
             {reply &&
                 reply.map((r, i) => (
                     <div className="reply" key={i}>
