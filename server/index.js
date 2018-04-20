@@ -43,5 +43,5 @@ process.env.NODE_ENV === 'production' && app.use(serveStatic(path.join(__dirname
 process.env.NODE_ENV === 'development' && app.use(serveStatic(path.join(__dirname, '../build')));
 
 server.listen(port, () => {
-    console.log('server listen on 9999');
+    console.log('server listen on ' + port);
 });
