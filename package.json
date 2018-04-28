@@ -11,32 +11,32 @@
         "start": " npm run build:server && npm run build:client && cross-env NODE_ENV=production node dist/server"
     },
     "dependencies": {
-        "antd": "^3.2.3",
+        "antd": "^3.4.4",
         "axios": "^0.17.1",
         "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-plugin-import": "^1.6.5",
+        "babel-core": "^6.26.3",
+        "babel-plugin-import": "^1.7.0",
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-react-app": "^3.1.1",
         "babel-preset-stage-0": "^6.24.1",
         "body-parser": "^1.18.2",
         "cors": "^2.8.4",
-        "cross-env": "^5.1.3",
-        "express": "^4.16.2",
+        "cross-env": "^5.1.4",
+        "express": "^4.16.3",
         "less": "^2.7.3",
         "multer": "^1.3.0",
-        "ptt-scr": "^1.1.15",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
+        "ptt-scr": "^1.2.1",
+        "react": "^16.3.2",
+        "react-dom": "^16.3.2",
         "react-redux": "^5.0.7",
         "redux": "^3.7.2",
         "redux-thunk": "^2.2.0",
         "serve-static": "^1.13.2"
     },
     "devDependencies": {
-        "eslint": "^4.18.2",
-        "nodemon": "^1.17.1",
+        "eslint": "^4.19.1",
+        "nodemon": "^1.17.3",
         "parcel-bundler": "^1.7.1"
     }
 }
